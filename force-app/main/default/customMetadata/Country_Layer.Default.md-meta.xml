@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Auth_Prefix__c</field>
+        <value xsi:type="xsd:string">access_key</value>
+    </values>
+    <values>
+        <field>Encrypted_AES_Key__c</field>
+        <value xsi:type="xsd:string">p6LgrjTduvsacwljkT95ng==</value>
+    </values>
+    <values>
+        <field>Encrypted_Api_Key__c</field>
+        <value xsi:type="xsd:string">5/xDD6z+D7pdZvAVvxMrR1UfzCfTBxVlEYDYowOvc4iEGix+iD60yAuK63Hlyr+q</value>
+    </values>
+    <values>
+        <field>Encryption_Key__c</field>
+        <value xsi:type="xsd:string">CountryLayerApi*</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">http://api.countrylayer.com/v2/all</value>
+    </values>
+</CustomMetadata>

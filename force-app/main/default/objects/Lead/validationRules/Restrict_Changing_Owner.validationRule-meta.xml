@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Changing_Owner</fullName>
+    <active>true</active>
+    <description>Changing Owner?
+1. Profile name System Administrator? The lead source is mandatory
+2. Profile name Contract Manager? Lead source &amp; Country are mandatory
+3. Except above profiles, Lead source, Country &amp; No. of employees are mandatory</description>
+    <errorConditionFormula>AND(
+    PRIORVALUE( OwnerId ) != OwnerId,
+    OR(
+        AND(
+            $Profile.Name != &apos;Contract Manager&apos;,
+            $Profile.Name != &apos;System Administrator&apos;,
+												OR(
+																ISBLANK(CountryLayer__c),
+																ISBLANK(TEXT(LeadSource)),
+																ISNULL(NumberOfEmployees) 
+												)
+								),
+								AND(
+												$Profile.Name = &apos;Contract Manager&apos;,
+												OR(
+																ISBLANK(CountryLayer__c),
+																ISBLANK(TEXT(LeadSource))
+												)
+								),
+								AND(
+												$Profile.Name = &apos;System Administrator&apos;,
+												ISBLANK(TEXT(LeadSource))
+								)
+				)
+)</errorConditionFormula>
+    <errorMessage>You need to fill in details in some fields in order to change the owner of the record</errorMessage>
+</ValidationRule>
